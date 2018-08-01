@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_one"
     android:layout_width="match_parent"
@@ -12,7 +12,17 @@
       android:id="@+id/fragmentTitle"
       android:text="FRAGMENT TITLE"
       android:gravity="center_horizontal"
+      android:layout_marginTop="20dp"
       android:textSize="20sp"
       />
 
-</LinearLayout>
+  <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/sample_button"
+      android:text="Sample button"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="20dp"
+      android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

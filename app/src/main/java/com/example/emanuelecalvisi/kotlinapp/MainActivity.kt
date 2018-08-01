@@ -2,14 +2,10 @@ package com.example.emanuelecalvisi.kotlinapp
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
 import com.example.emanuelecalvisi.kotlinapp.Fragments.MainFragment
 import com.example.emanuelecalvisi.kotlinapp.Utils.ActivityUtil
 import android.content.DialogInterface
 import android.support.v7.app.AlertDialog
-
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,8 +14,8 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     val frag = MainFragment()
-    ActivityUtil.setFragmentManager(supportFragmentManager)
-    ActivityUtil.addFragmentToActivity( frag)
+    ActivityUtil.configure(supportFragmentManager)
+    ActivityUtil.addFragmentToActivity(frag)
   }
 
   override fun onBackPressed() {

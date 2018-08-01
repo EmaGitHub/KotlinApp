@@ -17,12 +17,13 @@ object ActivityUtil {
   fun addFragmentToActivity(fragment: Fragment) {
 
     val transaction =  manager!!.beginTransaction()
+    transaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top)
     transaction.add(R.id.fragmentContainer, fragment)
     transaction.addToBackStack(null)
     transaction.commit()
   }
 
-  fun setFragmentManager(manager: FragmentManager){
+  fun configure(manager: FragmentManager){
     this.manager = manager
   }
 

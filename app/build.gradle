@@ -13,13 +13,46 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+      javaCompileOptions {
+        annotationProcessorOptions {
+          includeCompileClasspath = false
+        }
+      }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+          debuggable true
+          minifyEnabled false
+        }
     }
+
+  signingConfigs {
+    release {
+      try {
+        storeFile file(KEYSTORE_FILE)
+        storePassword KEYSTORE_PASSWORD
+        keyAlias KEY_ALIAS
+        keyPassword KEY_PASSWORD
+      } catch (ex) {
+        throw new InvalidUserDataException("You should define KEYSTORE_FILE, KEYSTORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD in gradle.properties.")
+      }
+    }
+    debug {
+      try {
+        storeFile file(KEYSTORE_FILE_DEBUG)
+        storePassword KEYSTORE_PASSWORD_DEBUG
+        keyAlias KEY_ALIAS_DEBUG
+        keyPassword KEY_PASSWORD_DEBUG
+      } catch (ex) {
+        throw new InvalidUserDataException("You should define KEYSTORE_FILE, KEYSTORE_PASSWORD, KEY_ALIAS, KEY_PASSWORD in gradle.properties.")
+      }
+    }
+  }
 }
 
 dependencies {
@@ -30,4 +63,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.jakewharton:butterknife:6.1.0'
 }

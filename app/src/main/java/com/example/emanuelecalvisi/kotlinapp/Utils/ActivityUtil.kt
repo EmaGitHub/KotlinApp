@@ -2,6 +2,7 @@ package com.example.emanuelecalvisi.kotlinapp.Utils
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import com.example.emanuelecalvisi.kotlinapp.Fragments.CustomFragment
 import com.example.emanuelecalvisi.kotlinapp.R
 
 /*
@@ -14,12 +15,12 @@ object ActivityUtil {
 
   var manager: FragmentManager? = null
 
-  fun addFragmentToActivity(fragment: Fragment) {
+  fun addFragmentToActivity(fragment: CustomFragment) {
 
     val transaction =  manager!!.beginTransaction()
     transaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top)
     transaction.add(R.id.fragmentContainer, fragment)
-    transaction.addToBackStack(null)
+    transaction.addToBackStack(fragment.TAG)
     transaction.commit()
   }
 

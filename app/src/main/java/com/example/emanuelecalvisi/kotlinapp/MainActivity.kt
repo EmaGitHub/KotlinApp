@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
           .show()
 
     } else {
+
       supportFragmentManager.popBackStack()
     }
   }

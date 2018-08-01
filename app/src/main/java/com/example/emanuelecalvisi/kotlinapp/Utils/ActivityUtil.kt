@@ -18,7 +18,7 @@ object ActivityUtil {
   fun addFragmentToActivity(fragment: CustomFragment) {
 
     val transaction =  manager!!.beginTransaction()
-    transaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top)
+    transaction.setCustomAnimations(R.anim.enter_from_top, R.anim.exit_to_top, R.anim.enter_from_top, R.anim.exit_to_top)
     transaction.add(R.id.fragmentContainer, fragment)
     transaction.addToBackStack(fragment.TAG)
     transaction.commit()

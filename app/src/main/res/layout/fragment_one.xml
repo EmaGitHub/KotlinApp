@@ -20,7 +20,8 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/sample_button"
-      android:text="Sample button"
+      android:text="go Next Fragment"
+      android:textAllCaps="false"
       android:layout_centerHorizontal="true"
       android:layout_marginBottom="20dp"
       android:layout_alignParentBottom="true"/>

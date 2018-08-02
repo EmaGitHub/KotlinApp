@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_one"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green">
+    android:background="@color/green"
+    >
 
   <TextView
       android:layout_width="match_parent"
       android:layout_height="30dp"
       android:id="@+id/fragment_title_2"
-      android:text="FRAGMENT TWO"
+      android:text="WEBVIEW"
       android:gravity="center_horizontal"
-      android:layout_marginTop="20dp"
+      android:layout_marginTop="10dp"
       android:textSize="20sp"
+      />
+
+  <EditText
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/editTextWebView"
+      android:layout_below="@+id/fragment_title_2"
+      android:layout_margin="15dp"
+      android:background="@color/white"
       />
 
   <Button
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:id="@+id/sample_button_2"
-      android:text="Sample button"
+      android:text="Search"
       android:layout_centerHorizontal="true"
-      android:layout_marginBottom="20dp"
-      android:layout_alignParentBottom="true"/>
+      android:layout_below="@+id/editTextWebView"/>
+
+  <WebView
+      android:id="@+id/webView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@+id/sample_button_2"
+      android:layout_margin="15dp"/>
+
+
+
+
 
 </RelativeLayout>

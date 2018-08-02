@@ -16,6 +16,14 @@
       android:textSize="20sp"
       />
 
+  <ImageView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="30dp"
+      android:layout_below="@id/fragmentTitle"
+      android:src="@mipmap/ic_launcher"
+      />
+
   <Button
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"

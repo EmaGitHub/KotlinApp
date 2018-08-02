@@ -1,16 +1,16 @@
 package com.example.emanuelecalvisi.kotlinapp.Fragments
 
-import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.example.emanuelecalvisi.kotlinapp.R
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_one.sample_button
-import kotlinx.android.synthetic.main.fragment_one.view.sample_button
+import kotlinx.android.synthetic.main.fragment_two.view.editTextWebView
+
 import kotlinx.android.synthetic.main.fragment_two.view.sample_button_2
+import kotlinx.android.synthetic.main.fragment_two.view.webView
 
 /*
 
@@ -28,9 +28,16 @@ class TopFragment : CustomFragment(){
     super.TAG = "TopFragment"
 
     view.sample_button_2.setOnClickListener{
-      view.sample_button_2.setBackgroundColor(Color.BLUE)
-      view.sample_button_2.setTextColor(Color.WHITE)
+      view.webView.loadUrl("http://"+view.editTextWebView.text)
     }
+
+    view.webView.webViewClient = object : WebViewClient(){
+      override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+          view?.loadUrl(url)
+          return true
+      }
+    }
+    view.webView.loadUrl("https://www.google.it/")
 
     return view
   }

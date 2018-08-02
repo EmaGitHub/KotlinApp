@@ -1,3 +1,8 @@
 <resources>
-  <string name="app_name">KotlinApp</string>
+  <string name="app_name">Kotlin Application</string>
+
+  <string name="drawer1">Kotlin Application</string>
+  <string name="drawer2">Kotlin Application</string>
+  <string name="drawer3">Kotlin Application</string>
+
 </resources>

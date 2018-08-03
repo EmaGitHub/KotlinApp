@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.EditText
 import com.example.emanuelecalvisi.kotlinapp.R
 import kotlinx.android.synthetic.main.fragment_two.view.backButton
 import kotlinx.android.synthetic.main.fragment_two.view.editTextWebView
@@ -32,12 +33,13 @@ class HttpFragment : CustomFragment(){
     savedInstanceState: Bundle?): View? {
 
     val view = inflater?.inflate(R.layout.fragment_two, container, false)
+    val editText : EditText = view.editTextWebView
 
     super.TAG = "HttpFragment"
 
 
     view.search_address.setOnClickListener{
-      tempWebAddress = "https://"+view.editTextWebView.text
+      tempWebAddress = ""+editText.text.toString()
       webAdresses.add(tempWebAddress.toString())
       view.webView.loadUrl(tempWebAddress)
       indexTop = index + 1
@@ -49,6 +51,7 @@ class HttpFragment : CustomFragment(){
       if(index>1) {
         index--
         tempWebAddress = webAdresses.get(index - 1)
+        editText.setText(tempWebAddress)
         view.webView.loadUrl(tempWebAddress)
       }
     }
@@ -56,12 +59,14 @@ class HttpFragment : CustomFragment(){
     view.forwardButton.setOnClickListener{
       if(index<indexTop){
         tempWebAddress = webAdresses.get(index++)
+        editText.setText(tempWebAddress)
         view.webView.loadUrl(tempWebAddress)
       }
     }
 
     view.webView.webViewClient = object : WebViewClient(){
       override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+          editText.setText(""+url)
           view?.loadUrl(url)
           return true
       }

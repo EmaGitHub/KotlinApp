@@ -25,7 +25,7 @@
       android:layout_below="@+id/fragment_title_2"
       android:layout_margin="15dp"
       android:background="@color/white"
-      android:text="www.google.it"
+      android:text="https://www.google.it"
       />
 
   <Button

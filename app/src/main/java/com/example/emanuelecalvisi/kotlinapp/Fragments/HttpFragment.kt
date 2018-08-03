@@ -42,6 +42,7 @@ class HttpFragment : CustomFragment(){
       view.webView.loadUrl(tempWebAddress)
       indexTop = index + 1
       index++
+      view.editTextWebView.hideKeyboard()
     }
 
     view.backButton.setOnClickListener{
@@ -67,5 +68,10 @@ class HttpFragment : CustomFragment(){
     }
 
     return view
+  }
+
+  fun View.hideKeyboard() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(windowToken, 0)
   }
 }

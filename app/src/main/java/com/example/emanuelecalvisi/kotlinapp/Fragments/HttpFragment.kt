@@ -28,6 +28,7 @@ class HttpFragment : CustomFragment(){
   var tempWebAddress : String? = null
   var index: Int = 0
   var indexTop: Int = 0
+  var booleanCheck: Boolean = true
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?): View? {
@@ -42,6 +43,7 @@ class HttpFragment : CustomFragment(){
       tempWebAddress = ""+editText.text.toString()
       webAdresses.add(tempWebAddress.toString())
       view.webView.loadUrl(tempWebAddress)
+      booleanCheck = false
       indexTop = index + 1
       index++
       view.editTextWebView.hideKeyboard()
@@ -49,10 +51,11 @@ class HttpFragment : CustomFragment(){
 
     view.backButton.setOnClickListener{
       if(index>1) {
-        index--
         tempWebAddress = webAdresses.get(index - 1)
         editText.setText(tempWebAddress)
         view.webView.loadUrl(tempWebAddress)
+        booleanCheck = false
+        index--
       }
     }
 
@@ -66,8 +69,15 @@ class HttpFragment : CustomFragment(){
 
     view.webView.webViewClient = object : WebViewClient(){
       override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-          editText.setText(""+url)
+
+          if(booleanCheck) {
+              editText.setText(""+url)
+              webAdresses.add("" + url)
+              indexTop = index+1
+              index++
+          }
           view?.loadUrl(url)
+          booleanCheck = true
           return true
       }
     }

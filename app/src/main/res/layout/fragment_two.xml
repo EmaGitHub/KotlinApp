@@ -25,12 +25,13 @@
       android:layout_below="@+id/fragment_title_2"
       android:layout_margin="15dp"
       android:background="@color/white"
+      android:text="www.google.it"
       />
 
   <Button
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:id="@+id/sample_button_2"
+      android:id="@+id/search_address"
       android:text="Search"
       android:layout_centerHorizontal="true"
       android:layout_below="@+id/editTextWebView"/>
@@ -39,11 +40,25 @@
       android:id="@+id/webView"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:layout_below="@+id/sample_button_2"
+      android:layout_below="@+id/search_address"
       android:layout_margin="15dp"/>
+  <Button
+      android:id="@+id/forwardButton"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:background="@drawable/right_arrow"
+      android:layout_alignEnd="@+id/editTextWebView"
+      android:layout_alignTop="@+id/search_address"
 
-
-
+      />
+  <Button
+      android:id="@+id/backButton"
+      android:layout_width="50dp"
+      android:layout_height="50dp"
+      android:background="@drawable/left_arrow"
+      android:layout_alignStart="@+id/editTextWebView"
+      android:layout_alignTop="@+id/search_address"
+      />
 
 
 </RelativeLayout>

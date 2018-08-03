@@ -33,7 +33,7 @@ class MainFragment : CustomFragment(){
     }
 
     view.sample_button.setOnClickListener{
-      ActivityUtil.addFragmentToActivity(TopFragment())
+      ActivityUtil.addFragmentToActivity(HttpFragment())
     }
 
     return view

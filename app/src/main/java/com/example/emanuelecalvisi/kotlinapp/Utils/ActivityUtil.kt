@@ -1,7 +1,9 @@
 package com.example.emanuelecalvisi.kotlinapp.Utils
 
+import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
+import android.view.inputmethod.InputMethodManager
 import com.example.emanuelecalvisi.kotlinapp.Fragments.CustomFragment
 import com.example.emanuelecalvisi.kotlinapp.R
 
@@ -26,6 +28,10 @@ object ActivityUtil {
 
   fun configure(manager: FragmentManager){
     this.manager = manager
+  }
+
+  fun hideKeyboard(context: Context?){
+    context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
   }
 
 }

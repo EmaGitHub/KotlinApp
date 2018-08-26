@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import com.example.emanuelecalvisi.kotlinapp.R
 import android.widget.Toast
 import com.example.emanuelecalvisi.kotlinapp.Utils.ActivityUtil
-import kotlinx.android.synthetic.main.fragment_one.view.fragmentTitle
-import kotlinx.android.synthetic.main.fragment_one.view.sample_button
+import kotlinx.android.synthetic.main.fragment_one.view.*
 
 /*
 
@@ -27,13 +26,17 @@ class MainFragment : CustomFragment(){
     super.TAG = "MainFragment"
 
     view.fragmentTitle.setOnClickListener{
-      Toast.makeText(activity, "clicked ", Toast.LENGTH_LONG).show()
       view.fragmentTitle.setBackgroundColor(Color.BLUE)
       view.fragmentTitle.setTextColor(Color.WHITE)
+      view.hideButton.visibility = View.VISIBLE;
     }
 
     view.sample_button.setOnClickListener{
       ActivityUtil.addFragmentToActivity(HttpFragment())
+    }
+
+    view.hideButton.setOnClickListener(){
+        ActivityUtil.addFragmentToActivity(TopFragment())
     }
 
     return view

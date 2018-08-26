@@ -34,4 +34,14 @@
       android:layout_marginBottom="20dp"
       android:layout_alignParentBottom="true"/>
 
+  <Button
+      android:id="@+id/hideButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="85dp"
+      android:visibility="invisible"
+      android:text="Button" />
+
 </RelativeLayout>

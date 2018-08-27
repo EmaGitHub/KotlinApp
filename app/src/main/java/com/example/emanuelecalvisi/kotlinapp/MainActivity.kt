@@ -8,6 +8,7 @@ import android.content.DialogInterface
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AlertDialog
 import android.view.MenuItem
+import com.example.emanuelecalvisi.kotlinapp.Fragments.Person
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
 
@@ -19,13 +20,13 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    nav_view.setNavigationItemSelectedListener {menuItem ->
+    main()
+
+    nav_view.setNavigationItemSelectedListener { menuItem ->
       // set item as selected to persist highlight
       menuItem.isChecked = true
       // close drawer when item is tapped
       drawer_layout.closeDrawers()
-
-
       true
     }
 
@@ -37,15 +38,12 @@ class MainActivity : AppCompatActivity() {
     ActivityUtil.addFragmentToActivity(frag)
   }
 
-
-
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     return when (item.itemId) {
       android.R.id.home -> {
 
-        if(!drawerOpened) openDrawer()
+        if (!drawerOpened) openDrawer()
         else closeDrawer()
-
         true
       }
       else -> super.onOptionsItemSelected(item)
@@ -72,13 +70,27 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  fun openDrawer(){
+  fun openDrawer() {
     drawer_layout.openDrawer(GravityCompat.START)
     drawerOpened = true
   }
-  fun closeDrawer(){
+
+  fun closeDrawer() {
     drawer_layout.closeDrawer(GravityCompat.START)
     drawerOpened = false
   }
 
+  fun main() {
+
+
+    var Marco : Person? = null
+    Marco = Person("Marco", "Rossi")
+
+
+    println("Ciao "+Marco.firstName+" "+Marco._lastName)
+    println("")
+
+
+
+  }
 }

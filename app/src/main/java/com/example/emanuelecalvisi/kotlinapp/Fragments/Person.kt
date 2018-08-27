@@ -6,7 +6,7 @@ Created by Emanuele Calvisi on 03/08/2018.
 
 */
 
-class Person(_firstName: String, _lastName: String) {
+data class Person(val _firstName: String, val _lastName: String) {
   // Member Variables (Properties) of the class
   var firstName: String
   var lastName: String

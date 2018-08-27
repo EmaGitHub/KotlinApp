@@ -90,7 +90,5 @@ class MainActivity : AppCompatActivity() {
     println("Ciao "+Marco.firstName+" "+Marco._lastName)
     println("")
 
-
-
   }
 }

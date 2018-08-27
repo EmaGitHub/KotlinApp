@@ -2,6 +2,7 @@ package com.example.emanuelecalvisi.kotlinapp.Fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat.getColor
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ Created by Emanuele Calvisi on 31/07/2018.
 
 class MainFragment : CustomFragment(){
 
+  var visible: Boolean = false
+
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?): View? {
 
@@ -25,10 +28,19 @@ class MainFragment : CustomFragment(){
 
     super.TAG = "MainFragment"
 
-    view.fragmentTitle.setOnClickListener{
-      view.fragmentTitle.setBackgroundColor(Color.BLUE)
-      view.fragmentTitle.setTextColor(Color.WHITE)
-      view.hideButton.visibility = View.VISIBLE;
+    view.kotlinImage.setOnClickListener{
+      if(!visible) {
+        view.fragmentTitle.setBackgroundColor(Color.BLACK)
+        view.fragmentTitle.setTextColor(Color.WHITE)
+        view.hideButton.visibility = View.VISIBLE;
+        this.visible = true
+      }
+      else{
+        view.fragmentTitle.setBackgroundColor(getColor(getResources(), R.color.cyan, null))
+        view.fragmentTitle.setTextColor(Color.BLACK)
+        view.hideButton.visibility = View.INVISIBLE;
+        this.visible = false
+      }
     }
 
     view.sample_button.setOnClickListener{

@@ -21,8 +21,17 @@
       android:layout_height="wrap_content"
       android:id="@+id/kotlinImage"
       android:padding="30dp"
+      android:paddingBottom="0dp"
       android:layout_below="@id/fragmentTitle"
       android:src="@mipmap/ic_launcher"
+      />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/kotlinImage"
+      android:text="CLICK the icon ABOVE"
+      android:gravity="center_horizontal"
       />
 
   <Button

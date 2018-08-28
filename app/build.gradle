@@ -53,7 +53,11 @@ android {
       }
     }
   }
-
+  kotlin {
+    experimental {
+      coroutines 'enable'
+    }
+  }
 }
 
 dependencies {
@@ -66,7 +70,11 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.android.support:design:28.0.0-beta01'
 
+
     implementation 'com.squareup.okhttp3:okhttp:3.9.0'
     implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
     implementation 'com.android.support:recyclerview-v7:28.0.0-alpha3'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.20"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:0.20"
 }

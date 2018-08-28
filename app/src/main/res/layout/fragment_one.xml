@@ -11,7 +11,7 @@
       android:layout_height="50dp"
       android:id="@+id/fragmentTitle"
       android:text="FRAGMENT TITLE"
-      android:gravity="center_horizontal"
+      android:gravity="center_horizontal|center_vertical"
       android:layout_marginTop="20dp"
       android:textSize="20sp"
       />
@@ -43,6 +43,16 @@
       android:layout_centerHorizontal="true"
       android:layout_marginBottom="85dp"
       android:visibility="invisible"
-      android:text="Button" />
+      android:text="sync req BUTT" />
+
+  <Button
+      android:id="@+id/asyncButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="150dp"
+      android:text="ASYNC REQUEST page"
+      />
 
 </RelativeLayout>

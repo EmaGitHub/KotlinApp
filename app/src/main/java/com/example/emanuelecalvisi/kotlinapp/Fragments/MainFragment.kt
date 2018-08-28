@@ -1,7 +1,9 @@
 package com.example.emanuelecalvisi.kotlinapp.Fragments
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Message
 import android.support.v4.content.res.ResourcesCompat.getColor
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +12,7 @@ import com.example.emanuelecalvisi.kotlinapp.R
 import android.widget.Toast
 import com.example.emanuelecalvisi.kotlinapp.Utils.ActivityUtil
 import kotlinx.android.synthetic.main.fragment_one.view.*
+import java.time.Duration
 
 /*
 
@@ -49,6 +52,10 @@ class MainFragment : CustomFragment(){
 
     view.hideButton.setOnClickListener(){
         ActivityUtil.addFragmentToActivity(TopFragment())
+    }
+
+    view.asyncButton.setOnClickListener(){
+      ActivityUtil.addFragmentToActivity(AsyncFragment())
     }
 
     return view

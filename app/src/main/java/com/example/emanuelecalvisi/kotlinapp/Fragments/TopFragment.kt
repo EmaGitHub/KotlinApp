@@ -7,10 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.emanuelecalvisi.kotlinapp.R
-import com.squareup.picasso.Picasso
 import okhttp3.OkHttpClient
 import okhttp3.HttpUrl
 import okhttp3.Request
+import android.os.StrictMode
+import kotlinx.android.synthetic.main.fragment_top.view.textView
 
 /*
 
@@ -20,66 +21,62 @@ Created by Emanuele Calvisi on 02/08/2018.
 
 class TopFragment: CustomFragment(){
 
-  val httpClient: OkHttpClient? = null
-  val picassoCLient: Picasso.Builder? = null
+  var httpClient: OkHttpClient? = null
   var fragmentView: View? = null
-  var myActivity: Activity = Activity()
+
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
     fragmentView = inflater.inflate(R.layout.fragment_top, container, false)
-    initClients()
+    super.TAG = "TopFragment"
 
-    val thread = MyThread(myActivity)
+    initClient()
+
+
+    val thread = MyThread(::makeSyncRequest, fragmentView)
     thread.start()
+    fragmentView!!.textView.text = makeSyncRequest()
 
     return fragmentView
   }
 
-  override fun onAttach(context: Context?) {
-
-    super.onAttach(context)
-    myActivity = context as Activity
-  }
-
-
-  private fun initClients() {
-
-  }
-
-  fun makeRequest () : Unit {
-
+  private fun initClient() {
     // should be a singleton
-    val client = OkHttpClient()
+    if (httpClient==null) httpClient = OkHttpClient()
+
+    //set policy
+    val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+    StrictMode.setThreadPolicy(policy)
+  }
+
+  fun makeSyncRequest () : String {
 
     val urlBuilder = HttpUrl.parse("https://www.google.it")!!.newBuilder()
     /*urlBuilder.addQueryParameter("v", "1.0")
     urlBuilder.addQueryParameter("q", "android")*/
     val url = urlBuilder.build().toString()
-
     val request = Request.Builder().url(url).build()
 
     //Synchronous Network call
-    val response = client.newCall(request).execute()
+    val response = httpClient?.newCall(request)?.execute()
+    return ("RESPONSE: "+response?.body()?.string())
+  }
 
+  fun modifyUI(stringa : String){
+    fragmentView!!.textView.text = stringa
   }
 }
 
-  class MyThread(activity: Activity) : Thread(){
+  class MyThread(funzione: () -> String, v: View?) : Thread(){
 
-    var a = activity
+    val view: View? = v
+    val func = funzione
 
     override fun run() {
       println("${Thread.currentThread()} has run.")
 
-      while (true) {
-
-        Thread.sleep(200)
-        a.runOnUiThread {
-
-
-        }
-
-      }
+      Thread.sleep(1000)
+      val string =  func()
+      println(string)
     }
   }
 

@@ -1,5 +1,6 @@
 package com.example.emanuelecalvisi.kotlinapp
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.emanuelecalvisi.kotlinapp.Fragments.MainFragment
@@ -8,6 +9,7 @@ import android.content.DialogInterface
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AlertDialog
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.emanuelecalvisi.kotlinapp.Fragments.Person
 import kotlinx.android.synthetic.main.activity_main.drawer_layout
 import kotlinx.android.synthetic.main.activity_main.nav_view
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity() {
     val frag = MainFragment()
     ActivityUtil.configure(supportFragmentManager)
     ActivityUtil.addFragmentToActivity(frag)
+    toast("Activity started")
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -91,4 +94,9 @@ class MainActivity : AppCompatActivity() {
     println("")
 
   }
+
+  fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT){
+    Toast.makeText(this, message, duration).show()
+  }
+
 }

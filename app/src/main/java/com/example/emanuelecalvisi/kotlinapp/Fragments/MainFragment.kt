@@ -35,12 +35,16 @@ class MainFragment : CustomFragment(){
       if(!visible) {
         view.fragmentTitle.setBackgroundColor(Color.BLACK)
         view.fragmentTitle.setTextColor(Color.WHITE)
+        view.clickTip.setBackgroundColor(Color.BLACK)
+        view.clickTip.setTextColor(Color.WHITE)
         view.hideButton.visibility = View.VISIBLE;
         this.visible = true
       }
       else{
         view.fragmentTitle.setBackgroundColor(getColor(getResources(), R.color.cyan, null))
         view.fragmentTitle.setTextColor(Color.BLACK)
+        view.clickTip.setBackgroundColor(getColor(getResources(), R.color.cyan, null))
+        view.clickTip.setTextColor(Color.BLACK)
         view.hideButton.visibility = View.INVISIBLE;
         this.visible = false
       }

@@ -27,8 +27,9 @@
       />
 
   <TextView
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      android:id="@+id/clickTip"
       android:layout_below="@id/kotlinImage"
       android:text="CLICK the icon ABOVE"
       android:gravity="center_horizontal"

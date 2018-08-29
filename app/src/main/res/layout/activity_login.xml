@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e9e9e9"
+    >
+
+  <ImageView
+      android:id="@+id/appIcon"
+      android:layout_width="70dp"
+      android:layout_height="70dp"
+      android:src="@drawable/icon"
+      app:layout_constraintVertical_bias="0.2"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      />
+
+  <TextView
+      android:id="@+id/appTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="CRV RASMedia"
+      android:textColor="#324da0"
+      android:textSize="14dp"
+      app:layout_constraintTop_toBottomOf="@id/appIcon"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+
+      />
+
+  <TextView
+      android:id="@+id/appSubTitle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Consiglio regionale del Veneto"
+      android:textSize="11dp"
+      android:textColor="#324da0"
+      app:layout_constraintTop_toBottomOf="@id/appTitle"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      />
+
+  <TextView
+      android:id="@+id/appSubTitle2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Ufficio stampa"
+      android:textSize="10dp"
+      android:textColor="#324da0"
+      app:layout_constraintTop_toBottomOf="@id/appSubTitle"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      />
+
+  <View
+      android:layout_width="0dp"
+      android:layout_height="1dp"
+      android:background="#fd939393"
+
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent=".8"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintVertical_bias="0.45"
+    />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nome utente"
+        android:textColor="#324da0"
+
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        />
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edit_text_shape"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textSize="12dp"
+        android:hint="Inserire nome utente"
+
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent=".8"
+        />
+
+  <TextView
+      android:id="@+id/password"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="Password"
+      android:textColor="#324da0"
+
+      app:layout_constraintTop_toBottomOf="@id/name_edit_text"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent=".8"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintVertical_bias="0.67"
+      />
+
+  <EditText
+      android:id="@+id/password_edit_text"
+      android:layout_width="0dp"
+      android:layout_height="40dp"
+      android:background="@drawable/edit_text_shape"
+      android:paddingLeft="15dp"
+      android:paddingRight="15dp"
+      android:textSize="12dp"
+      android:hint="Inserire password"
+
+      app:layout_constraintTop_toBottomOf="@+id/password"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent=".8"
+      />
+
+  <Button
+      android:layout_width="0dp"
+      android:layout_height="40dp"
+      android:background="@drawable/button_shape"
+      android:textColor="@color/white"
+      android:backgroundTint="#324da0"
+      android:text="Accedi"
+      android:textAllCaps="false"
+      android:textSize="12dp"
+
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintWidth_default="percent"
+      app:layout_constraintWidth_percent=".8"
+      app:layout_constraintVertical_bias="0.85"
+      />
+
+
+
+</android.support.constraint.ConstraintLayout>

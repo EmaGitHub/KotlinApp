@@ -37,7 +37,8 @@ class MainFragment : CustomFragment(){
         view.fragmentTitle.setTextColor(Color.WHITE)
         view.clickTip.setBackgroundColor(Color.BLACK)
         view.clickTip.setTextColor(Color.WHITE)
-        view.hideButton.visibility = View.VISIBLE;
+        view.hideButton.visibility = View.VISIBLE
+        view.loginbutton.visibility = View.VISIBLE
         this.visible = true
       }
       else{
@@ -46,6 +47,7 @@ class MainFragment : CustomFragment(){
         view.clickTip.setBackgroundColor(getColor(getResources(), R.color.cyan, null))
         view.clickTip.setTextColor(Color.BLACK)
         view.hideButton.visibility = View.INVISIBLE;
+        view.loginbutton.visibility = View.INVISIBLE
         this.visible = false
       }
     }
@@ -60,6 +62,10 @@ class MainFragment : CustomFragment(){
 
     view.asyncButton.setOnClickListener(){
       ActivityUtil.addFragmentToActivity(AsyncFragment())
+    }
+
+    view.loginbutton.setOnClickListener(){
+      ActivityUtil.addFragmentToActivity(LoginFragment())
     }
 
     return view

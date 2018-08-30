@@ -64,5 +64,15 @@
       android:layout_marginBottom="150dp"
       android:text="ASYNC REQUEST page"
       />
+  <Button
+      android:id="@+id/loginbutton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_centerHorizontal="true"
+      android:layout_marginBottom="209dp"
+      android:visibility="invisible"
+      android:text="Login"
+      />
 
 </RelativeLayout>

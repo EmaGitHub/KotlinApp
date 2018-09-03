@@ -1,12 +1,16 @@
 package com.example.emanuelecalvisi.kotlinapp
 
+import android.annotation.TargetApi
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.emanuelecalvisi.kotlinapp.Fragments.MainFragment
 import android.content.DialogInterface
 import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.os.Build
 import android.support.design.widget.NavigationView
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AlertDialog
 import android.view.Menu
@@ -30,13 +34,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        val mm0 = MenuModelHeader("kold", getDrawable(R.drawable.abc_list_focused_holo))
-        val mm1 = MenuModelHeader("coap", getDrawable(R.drawable.ic_mtrl_chip_close_circle))
-        val mm2 = MenuModelHeader("sdsf", getDrawable(R.drawable.ic_mtrl_chip_checked_circle))
-        val mm3 = MenuModelHeader("khgf", getDrawable(R.drawable.abc_ic_arrow_drop_right_black_24dp))
-        val aa1 = MenuModelChild("aad", getDrawable(R.drawable.right_arrow))
-        val aa3 = MenuModelChildToggle("wewe", getDrawable(R.drawable.hamburger), false)
+        val mm0 = MenuModelHeader("kold", resources.getDrawable(R.drawable.abc_list_focused_holo))
+        val mm1 = MenuModelHeader("coap", resources.getDrawable(R.drawable.ic_mtrl_chip_close_circle))
+        val mm2 = MenuModelHeader("sdsf", resources.getDrawable(R.drawable.ic_mtrl_chip_checked_circle))
+        val mm3 = MenuModelHeader("khgf", resources.getDrawable(R.drawable.abc_ic_arrow_drop_right_black_24dp))
+        val aa1 = MenuModelChild("aad", resources.getDrawable(R.drawable.right_arrow))
+        val aa3 = MenuModelChildToggle("wewe", resources.getDrawable(R.drawable.hamburger), false)
         val kk1 = MenuModelFooter()
 
         val season0: MutableList<MenuModel> = ArrayList()

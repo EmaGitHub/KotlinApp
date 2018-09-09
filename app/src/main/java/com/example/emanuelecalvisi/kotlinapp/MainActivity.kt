@@ -1,32 +1,24 @@
 package com.example.emanuelecalvisi.kotlinapp
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.example.emanuelecalvisi.kotlinapp.Fragments.MainFragment
 import android.content.DialogInterface
-import android.graphics.drawable.BitmapDrawable
-import android.graphics.drawable.Drawable
-import android.os.Build
-import android.support.design.widget.NavigationView
-import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AlertDialog
-import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
+import com.example.emanuelecalvisi.animlist.ConcreteAnimatedAdapter
 import com.example.emanuelecalvisi.kotlinapp.Utils.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.nav_footer.*
 import kotlin.collections.ArrayList
 
 
 class MainActivity : AppCompatActivity() {
 
-    val header: MutableList<MenuModel> = ArrayList()
-    val body: MutableList<MutableList<MenuModel>> = ArrayList()
+    val header: ArrayList<MenuModel> = ArrayList()
+    val body: ArrayList<ArrayList<MenuModel>> = ArrayList()
 
     var drawerOpened = false
 
@@ -42,10 +34,10 @@ class MainActivity : AppCompatActivity() {
         val aa3 = MenuModelChildToggle("wewe", resources.getDrawable(R.drawable.hamburger), false)
         val kk1 = MenuModelFooter()
 
-        val season0: MutableList<MenuModel> = ArrayList()
-        val season1: MutableList<MenuModel> = ArrayList()
-        val season2: MutableList<MenuModel> = ArrayList()
-        val season3: MutableList<MenuModel> = ArrayList()
+        val season0: ArrayList<MenuModel> = ArrayList()
+        val season1: ArrayList<MenuModel> = ArrayList()
+        val season2: ArrayList<MenuModel> = ArrayList()
+        val season3: ArrayList<MenuModel> = ArrayList()
         season3.add(aa1)
         season3.add(aa1)
         season3.add(aa3)
@@ -63,10 +55,12 @@ class MainActivity : AppCompatActivity() {
         body.add(season3)
 
         expandableListView.setGroupIndicator(null)
-        expandableListView.dividerHeight = 0
+        expandableListView.dividerHeight = 1
+
 
         //expandableListView.setAdapter(animatedExpandableListAdapter)
-        expandableListView.setAdapter(com.example.emanuelecalvisi.kotlinapp.Utils.ExpandableListAdapter(this, expandableListView, header, body))
+        var adapter = ConcreteAnimatedAdapter(baseContext)
+        expandableListView.setAdapter(adapter)
 
         nav_view.setNavigationItemSelectedListener { menuItem ->
             // set item as selected to persist highlight

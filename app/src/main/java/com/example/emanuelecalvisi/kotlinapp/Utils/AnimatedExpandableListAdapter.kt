@@ -12,14 +12,14 @@ import android.widget.ExpandableListView
  * A specialized adapter for use with the AnimatedExpandableListView. All
  * adapters used with AnimatedExpandableListView MUST extend this class.
  */
-abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
+open abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
     private val groupInfo = SparseArray<AnimatedExpandableListView.GroupInfo>()
     private var parent: AnimatedExpandableListView? = null
 
     val realChildTypeCount: Int
         get() = 1
 
-    fun setParent(parent: AnimatedExpandableListView) {
+    internal fun setParent(parent: AnimatedExpandableListView) {
         this.parent = parent
     }
 
@@ -44,14 +44,14 @@ abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
         info.dummyHeight = -1
     }
 
-    fun startExpandAnimation(groupPosition: Int, firstChildPosition: Int) {
+    internal fun startExpandAnimation(groupPosition: Int, firstChildPosition: Int) {
         val info = getGroupInfo(groupPosition)
         info.animating = true
         info.firstChildPosition = firstChildPosition
         info.expanding = true
     }
 
-    fun startCollapseAnimation(groupPosition: Int, firstChildPosition: Int) {
+    internal fun startCollapseAnimation(groupPosition: Int, firstChildPosition: Int) {
         val info = getGroupInfo(groupPosition)
         info.animating = true
         info.firstChildPosition = firstChildPosition
@@ -96,14 +96,14 @@ abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
     /**
      * Override [.getChildView] instead.
      */
-    override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View, parent: ViewGroup): View {
+    override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup?): View? {
         var convertView = convertView
         val info = getGroupInfo(groupPosition)
 
         if (info.animating) {
             // If this group is animating, return the a DummyView...
             if (convertView is AnimatedExpandableListView.DummyView == false) {
-                convertView = AnimatedExpandableListView.DummyView(parent.context)
+                convertView = AnimatedExpandableListView.DummyView(parent!!.context)
                 convertView.setLayoutParams(AbsListView.LayoutParams(AbsListView.LayoutParams.MATCH_PARENT, 0))
             }
 
@@ -127,7 +127,7 @@ abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
                 // dummy views as we need to maintain the scroll position
                 // of the ListView after notifyDataSetChanged has been
                 // called.
-                convertView.layoutParams.height = 0
+                convertView?.layoutParams?.height = 0
                 return convertView
             }
 
@@ -185,7 +185,7 @@ abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
                 }
             }
 
-            val o: Any
+            val o: Any?
             o = dummyView.tag
             val state = if (o == null) STATE_IDLE else o as Int
 
@@ -235,7 +235,7 @@ abstract class AnimatedExpandableListAdapter : BaseExpandableListAdapter() {
 
             return convertView
         } else {
-            return getRealChildView(groupPosition, childPosition, isLastChild, convertView, parent)
+            return getRealChildView(groupPosition, childPosition, isLastChild, convertView, parent!!)
         }
     }
 

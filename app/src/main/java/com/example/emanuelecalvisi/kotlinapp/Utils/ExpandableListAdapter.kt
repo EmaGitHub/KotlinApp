@@ -16,7 +16,7 @@ import android.view.animation.Transformation
 import com.example.emanuelecalvisi.kotlinapp.MainActivity
 
 
-class ExpandableListAdapter(var context: Context, var expandableListView: ExpandableListView, var header: MutableList<MenuModel>, var body: MutableList<MutableList<MenuModel>>) : BaseExpandableListAdapter() {
+class ExpandableListAdapter(var context: Context, var expandableListView: ExpandableListView, var header: ArrayList<MenuModel>, var body: ArrayList<ArrayList<MenuModel>>) : BaseExpandableListAdapter() {
 
     var selected: View? = null
 

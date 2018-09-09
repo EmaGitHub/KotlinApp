@@ -36,7 +36,7 @@
       app:headerLayout="@layout/nav_header">
 
 
-    <ExpandableListView
+    <com.example.emanuelecalvisi.kotlinapp.Utils.AnimatedExpandableListView
         android:id="@+id/expandableListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

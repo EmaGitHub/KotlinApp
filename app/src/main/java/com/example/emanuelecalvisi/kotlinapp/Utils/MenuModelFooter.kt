@@ -1,4 +1,4 @@
 package com.example.emanuelecalvisi.kotlinapp.Utils
 
-class MenuModelFooter : MenuModel() {
+class MenuModelFooter : MenuModelHeader(labelTitle = "Footer", icon = null) {
 }

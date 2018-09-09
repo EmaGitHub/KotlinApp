@@ -1,7 +1,7 @@
 package com.example.emanuelecalvisi.kotlinapp.Utils
 
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 
-open class MenuModelHeader (val labelTitle: String, val icon: Drawable): MenuModel(){
+open class MenuModelHeader (var labelTitle: String?, var icon: Drawable?): MenuModel(){
+
 }

@@ -118,9 +118,9 @@ class ConcreteAnimatedAdapter(context: Context) : AnimatedExpandableListAdapter(
         val item = getChild(groupPosition, childPosition)
         if (convertView == null) {
             holder = ChildHolder()
-            convertView = inflater.inflate(R.layout.list_item, parent, false)
-            holder.title = convertView!!.findViewById(R.id.textTitle) as TextView
-            holder.hint = convertView.findViewById(R.id.textHint) as TextView
+            convertView = inflater.inflate(R.layout.list_group_child, parent, false)
+            holder.title = convertView!!.findViewById(R.id.child) as TextView
+            //holder.hint = convertView.findViewById(R.id.textHint) as TextView
             convertView.tag = holder
         } else {
             holder = convertView.tag as ChildHolder
@@ -150,8 +150,8 @@ class ConcreteAnimatedAdapter(context: Context) : AnimatedExpandableListAdapter(
         val item = getGroup(groupPosition)
         if (convertView == null) {
             holder = GroupHolder()
-            convertView = inflater.inflate(R.layout.group_item, parent, false)
-            holder.title = convertView!!.findViewById(R.id.textTitle) as TextView
+            convertView = inflater.inflate(R.layout.list_group_header, parent, false)
+            holder.title = convertView!!.findViewById(R.id.header) as TextView
             convertView.tag = holder
         } else {
             holder = convertView.tag as GroupHolder

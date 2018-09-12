@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         body.add(season3)
 
         expandableListView.setGroupIndicator(null)
-        expandableListView.dividerHeight = 1
+        expandableListView.dividerHeight = 0
 
 
         //expandableListView.setAdapter(animatedExpandableListAdapter)

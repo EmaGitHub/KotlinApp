@@ -127,7 +127,7 @@ class ConcreteAnimatedAdapter(context: Context) : AnimatedExpandableListAdapter(
         }
 
         holder.title!!.text = item.title
-        holder.hint!!.text = item.hint
+        //holder.hint!!.text = item.hint
 
         return convertView
     }
